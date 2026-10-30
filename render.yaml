@@ -1,0 +1,21 @@
+# Render blueprint; deployment requires user's Render account and approval.
+services:
+  - type: web
+    name: industrial-ai-paas-lab
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: industrial-ai-paas-db
+          property: connectionString
+      - key: DEMO_WRITE_ENABLED
+        value: "0"
+      - key: PUBLIC_READ_ONLY
+        value: "1"
+databases:
+  - name: industrial-ai-paas-db
+    plan: basic-256mb

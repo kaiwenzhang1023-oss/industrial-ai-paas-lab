@@ -1,0 +1,17 @@
+{
+  "simulation": true,
+  "order_id": "SO-2026-001",
+  "order_quantity": 100,
+  "due_date": "2026-11-30",
+  "material_expected": {
+    "ST-100": {"gross": 100, "net": 40, "planned": 40},
+    "RT-100": {"gross": 100, "net": 15, "planned": 15},
+    "BR-01": {"gross": 200, "net": 0, "planned": 0},
+    "HS-01": {"gross": 100, "net": 20, "planned": 20},
+    "SC-01": {"gross": 40, "net": 30, "planned": 30},
+    "CW-01": {"gross": 40, "net": 20, "planned": 20},
+    "RC-01": {"gross": 15, "net": 10, "planned": 10},
+    "SH-01": {"gross": 15, "net": 0, "planned": 0}
+  },
+  "purchase_amount_cny": "8700"
+}

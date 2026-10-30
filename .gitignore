@@ -1,0 +1,42 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.venv/
+node_modules/
+
+# Python virtual environments
+.venv*/
+venv/
+env/
+
+# Python caches
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime logs
+*.log
+
+# Local database and backup files
+*.sql.gz
+*.dump
+*.backup
+
+# Windows and editor files
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Python build artifacts
+*.egg-info/
+build/
+dist/
