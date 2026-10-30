@@ -12,7 +12,17 @@ from app.workflow.scheduler import durable_mrp_runner
 from app.agent import generate_and_persist
 from app.workflow.receipt_dispatcher import dispatch_receipts
 
-ROOT=Path(__file__).resolve().parents[2]
+ROOT = next(
+    (
+        parent
+        for parent in Path(__file__).resolve().parents
+        if (parent / "database" / "schema.sql").is_file()
+        and (parent / "datasets" / "seed" / "multi_order.json").is_file()
+    ),
+    None,
+)
+if ROOT is None:
+    raise FileNotFoundError("Cannot locate database and datasets directories")
 MIGRATIONS=['schema.sql','003_v03.sql','004_snapshot_fence.sql','005_effective_bom.sql',
  '006_m2_integration.sql','007_normalized_pegging.sql','008_workflow_runtime.sql',
  '009_workflow_worker.sql','010_agent_harness.sql','011_agent_governance.sql','012_outbox_receipts.sql']
