@@ -215,3 +215,8 @@ app.include_router(_srm_v14_router)
 # V1.6 additive read-only portfolio routes.
 from app.portfolio_v16.api import router as _portfolio_v16_router
 app.include_router(_portfolio_v16_router)
+
+# V1.8 Portfolio Demo Extension:
+# Public deterministic MRP golden example, read-only and non-persistent.
+from app.portfolio_demo_extension import router as _portfolio_demo_extension_router
+app.include_router(_portfolio_demo_extension_router)
