@@ -1,0 +1,11 @@
+{
+  "version": "1.7",
+  "environment": "sandbox Python",
+  "selected_offline_gate": "PASS",
+  "tests_passed": 63,
+  "tests_failed": 0,
+  "windows_powershell": "NOT_RUN",
+  "postgresql16_live": "NOT_RUN",
+  "neon_pg18_live": "NOT_RUN",
+  "production_release": "NO_GO"
+}

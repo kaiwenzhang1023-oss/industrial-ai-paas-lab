@@ -1,0 +1,47 @@
+﻿{
+  "release": "Industrial AI PaaS Lab V1.8 E06-16 Final Freeze RC1",
+  "status": "HOLD_PENDING_LOCAL_FINAL_GATE",
+  "source_archive": "Industrial_AI_PaaS_Lab_V1.8_E06-15_Final_RC1(1).zip",
+  "source_archive_sha256": "1a94753bc1b1235430503d0741b8bae45f1d0a677121fcf40a2d9ed7d1892ad7",
+  "changes": [
+    {
+      "file": "backend/tests/conftest.py",
+      "change": "Removed 22 statically verified offline/mock/contract test modules from database-only skip allowlist; PostgreSQL/PG16/integration marked tests remain fail-closed."
+    },
+    {
+      "file": "E06_15_FINAL_ONE_SHOT_GATE.ps1",
+      "change": "Synchronized explicit PostgreSQL catalog type casts and boolean false identity regex fixes previously applied locally."
+    },
+    {
+      "file": "E06_16_FINAL_FREEZE_GATE.ps1",
+      "change": "Added read-only local final gate: PowerShell 5.1, Python 3.14, Docker PG16, database identity/ledger/catalog checks, full pytest JUnit skip classification and source inventory verification."
+    }
+  ],
+  "core_migration_chain": [
+    "schema.sql",
+    "003_v03.sql",
+    "004_snapshot_fence.sql",
+    "005_effective_bom.sql",
+    "006_m2_integration.sql",
+    "007_normalized_pegging.sql",
+    "008_workflow_runtime.sql",
+    "009_workflow_worker.sql",
+    "010_agent_harness.sql",
+    "011_agent_governance.sql",
+    "012_outbox_receipts.sql"
+  ],
+  "database_safety": {
+    "acceptance_db": "identity SELECT only",
+    "replay_db": "read-only SELECT only",
+    "migrations_executed_by_E06_16": false,
+    "production_access": false,
+    "database_deletion": false
+  },
+  "final_signoff_requires": [
+    "local PowerShell 5.1 gate",
+    "local Python 3.14 full pytest",
+    "per-test JUnit skip classification",
+    "local Docker PostgreSQL 16 read-only baseline",
+    "complete E06-01..15 evidence index"
+  ]
+}

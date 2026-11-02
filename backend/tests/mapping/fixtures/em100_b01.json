@@ -1,0 +1,44 @@
+{
+  "mapping_id": "B01-MRP-BUY-SRM-PR",
+  "mapping_version": "1.0.0",
+  "source_system": "MRP",
+  "source_object": "BUY_PLAN",
+  "target_system": "SRM",
+  "target_object": "PR_CANDIDATE",
+  "source_result_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "mrp": {
+    "run_id": "M2-TEST",
+    "result_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "status": "COMPLETED",
+    "result": {
+      "plan_lots": [
+        {
+          "plan_id": "PLAN:BR-01@2026-12-15",
+          "material": "BR-01",
+          "quantity": "100",
+          "need_date": "2026-12-15",
+          "release_date": "2026-12-11",
+          "bom_version": null
+        },
+        {
+          "plan_id": "PLAN:EM-100@2026-12-15",
+          "material": "EM-100",
+          "quantity": "10",
+          "need_date": "2026-12-15",
+          "release_date": "2026-12-12",
+          "bom_version": "V1"
+        }
+      ]
+    }
+  },
+  "material_snapshot": {
+    "BR-01": {
+      "make_buy": "BUY",
+      "uom": "PCS"
+    },
+    "EM-100": {
+      "make_buy": "MAKE",
+      "uom": "PCS"
+    }
+  }
+}

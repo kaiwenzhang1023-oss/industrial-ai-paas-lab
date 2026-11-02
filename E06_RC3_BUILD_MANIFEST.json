@@ -1,0 +1,50 @@
+{
+  "release": "Industrial AI PaaS Lab V1.8 C4.5 E06 Gate Hardening RC3",
+  "status": "E06-11 to E06-13 source gates complete; E06-14 repeatability runner prepared; live two-pass PG16 execution pending",
+  "based_on_archive": "Industrial_AI_PaaS_Lab_V1.8_C4.5_E06_Gate_Hardening_RC2(1).zip",
+  "base_sha256": "fb66b35150d00f561093df23a6db88be4979dcdffbc56b9d275f17be95817dbd",
+  "completed": [
+    "E06-11 allowlist alignment",
+    "strict local DSN parsing",
+    "live PostgreSQL 16 server identity verification at pytest collection",
+    "dedicated v18_tester pin for E06 acceptance database",
+    "expanded DB test module classification",
+    "guard regression tests",
+    "V1.8 Phase 4 live PG16 test target alignment",
+    "E06-12 database test side-effect inventory and transaction-semantics classification",
+    "E06-13 cross-test isolation source audit and 24-test guard unit verification",
+    "E06-14 PG16 repeatability PowerShell runner and source contract review"
+  ],
+  "verification": {
+    "python_ast_files": 154,
+    "python_ast_errors": 0,
+    "e06_guard_tests": "24 passed",
+    "live_pg16_connection": "not run",
+    "full_python_314_regression": "not run",
+    "windows_powershell_51": "not run",
+    "browser_e2e": "not run",
+    "side_effect_scan_matches": 84,
+    "side_effect_audit": "source-reviewed; no broad transaction rewrite applied",
+    "cross_test_repeatability": "not run against user's Docker PG16; pending",
+    "e06_guard_unit_tests": "24 passed",
+    "e06_db_test_classification": "static scan; no actual DB test module omitted",
+    "docker_container_identity": "not independently verified by current guard; hardening recommended",
+    "e06_14_runner": "created; Windows execution pending",
+    "e06_14_target_test": "test_v18_phase4_live_pg16.py; random schema with finally cleanup",
+    "e06_14_offline_guard_tests": "24 passed (runner Python 3.13; project Python 3.14 gate pending)",
+    "e06_14_live_pg16_two_pass": "not run"
+  },
+  "database_safety": {
+    "neon_or_render_connected": false,
+    "user_docker_connected": false,
+    "user_database_modified": false,
+    "migration_executed": false,
+    "data_deleted": false
+  },
+  "sha256": {
+    "backend/tests/e06_isolated_db_guard.py": "bbec411c32d32879def510162b2fede46d014526ba32c83819f9e34e7a88c8e6",
+    "backend/tests/conftest.py": "223dca564db5da183718fc80e97a5a0e3ee26709a40366b3b2a96565d32bc15b",
+    "backend/tests/test_e06_isolated_db_guard.py": "3e1eb83e7886d788df00ed2d11728b462dda359889dfbb23c875623df984099a",
+    "backend/tests/test_v18_phase4_live_pg16.py": "8d9e212029e58ade615ec0a272eb7543a1e9be5c78be32270f1a40b49df54671"
+  }
+}

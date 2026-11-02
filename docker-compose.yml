@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: industrial_lab
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: local_demo_only
+    ports:
+      - "5432:5432"
+    volumes:
+      - lab_pg:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/003_v03.sql:/docker-entrypoint-initdb.d/03-v03.sql:ro
+      - ./database/004_snapshot_fence.sql:/docker-entrypoint-initdb.d/04-snapshot-fence.sql:ro
+      - ./database/006_m2_integration.sql:/docker-entrypoint-initdb.d/06-m2-integration.sql:ro
+      - ./database/007_normalized_pegging.sql:/docker-entrypoint-initdb.d/07-normalized-pegging.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lab -d industrial_lab"]
+      interval: 5s
+      retries: 10
+volumes:
+  lab_pg:

@@ -1,0 +1,28 @@
+{
+  "version": "V1.8 C4.4",
+  "baseline_archive": "Industrial_AI_PaaS_Lab_V1.8_C4.3_Compatibility_Repaired_Full_Source_BASELINE_UNMODIFIED.zip",
+  "baseline_sha256": "89553f815abb59d1760ccaaf98ab09758c4dd511c57443ee4319b4a0329bc842",
+  "preservation": "Original baseline archive retained unchanged; historical migrations 017-020 and 024 unchanged.",
+  "modified_files": [
+    "README.md",
+    "backend/app/mcp_v15/idempotency.py",
+    "backend/app/mcp_v17/recovery.py",
+    "backend/tests/test_mcp_v15_final_gate_pg16.py",
+    "backend/tests/test_mcp_v15_pg16.py"
+  ],
+  "added_files": [
+    "database/025_v15_request_ledger_security_api_TEST_ONLY.sql",
+    "database/025_v15_request_ledger_security_api_ACCEPTANCE_TEST_ONLY.sql",
+    "backend/tests/test_v15_ledger_security_api_contract.py",
+    "backend/tests/test_v15_ledger_security_api_pg16.py",
+    "RUN_C44_PG16_GATE.ps1",
+    "C44_CHANGELOG.md",
+    "C44_ACCEPTANCE_REPORT.md"
+  ],
+  "static_offline_results": {
+    "focused": "71 passed, 1 skipped",
+    "broad_offline": "399 passed, 23 skipped"
+  },
+  "live_pg16": "PENDING; not available in build sandbox",
+  "python_runtime": "Build sandbox Python 3.13.5; user-side gate requires Python 3.14"
+}

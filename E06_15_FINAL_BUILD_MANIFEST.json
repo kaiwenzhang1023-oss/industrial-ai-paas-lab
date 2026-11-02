@@ -1,0 +1,35 @@
+{
+  "release": "E06-15 Final RC1",
+  "source": "user-uploaded E06-14 complete source ZIP",
+  "purpose": "one-shot consolidated E06-15A/B/C/D gate",
+  "new_files": [
+    "E06_15_FINAL_ONE_SHOT_GATE.ps1",
+    "E06_15_FINAL_README.md",
+    "E06_15_MIGRATION_SOURCE_AUDIT_FINAL.md"
+  ],
+  "database_target_allowlist": {
+    "container": "industrial-v18-pg16-test",
+    "image": "postgres:16",
+    "host_port": 55432,
+    "database": "industrial_ai_v18_e06_migration_replay",
+    "user": "v18_tester"
+  },
+  "protected_database": "industrial_ai_v18_e06_acceptance",
+  "migration_chain": [
+    "schema.sql",
+    "003_v03.sql",
+    "004_snapshot_fence.sql",
+    "005_effective_bom.sql",
+    "006_m2_integration.sql",
+    "007_normalized_pegging.sql",
+    "008_workflow_runtime.sql",
+    "009_workflow_worker.sql",
+    "010_agent_harness.sql",
+    "011_agent_governance.sql",
+    "012_outbox_receipts.sql"
+  ],
+  "repeatability": "checksum-ledger verified skip on pass two; raw DDL is not blindly replayed",
+  "cloud_access": false,
+  "database_cleanup": false,
+  "status": "candidate package; final host validation pending"
+}
