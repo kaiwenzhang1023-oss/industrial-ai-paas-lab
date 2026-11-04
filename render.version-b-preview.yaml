@@ -1,0 +1,17 @@
+# New standalone Render service only. DO NOT replace the historical root render.yaml.
+# Configure DATABASE_URL and PREVIEW_SESSION_SECRET privately in Render dashboard.
+services:
+  - type: web
+    name: industrial-ai-paas-v19-version-b-preview
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./Dockerfile.version-b-preview
+    dockerContext: .
+    autoDeploy: false
+    healthCheckPath: /health
+    envVars:
+      - key: PREVIEW_SESSION_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false

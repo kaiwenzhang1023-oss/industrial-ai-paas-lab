@@ -1,0 +1,4453 @@
+{
+  "metadata": {
+    "title": "工业电机制造业仿真模拟数据",
+    "isSimulation": true,
+    "isRealEnterpriseData": false,
+    "reference": "历史 V1.4 黄金样例为单独回归基准；本数据为新增行业合理化假设，不宣称为真实工厂 BOM",
+    "bomVersion": "BOM-EM100-V1",
+    "planning_engine": "V1.9-B daily-bucket deterministic, no capacity constraints",
+    "as_of": "2026-11-03"
+  },
+  "product": {
+    "id": "EM-100",
+    "name": "三相异步工业电机（仿真示例）"
+  },
+  "items": [
+    {
+      "id": "ST-100",
+      "name": "定子总成",
+      "type": "MAKE",
+      "uom": "EA",
+      "leadDays": 2,
+      "moq": 1,
+      "lot": 1,
+      "supplier": null,
+      "unitCost": 8.0,
+      "scrap": 0
+    },
+    {
+      "id": "RT-100",
+      "name": "转子总成",
+      "type": "MAKE",
+      "uom": "EA",
+      "leadDays": 2,
+      "moq": 1,
+      "lot": 1,
+      "supplier": null,
+      "unitCost": 10.6,
+      "scrap": 0
+    },
+    {
+      "id": "BR-01",
+      "name": "深沟球轴承 6205",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 7,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-03",
+      "unitCost": 13.2,
+      "scrap": 0
+    },
+    {
+      "id": "HS-01",
+      "name": "铸铁机座",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 10,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-04",
+      "unitCost": 15.8,
+      "scrap": 0
+    },
+    {
+      "id": "EC-01",
+      "name": "前端盖",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 9,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-05",
+      "unitCost": 18.4,
+      "scrap": 0
+    },
+    {
+      "id": "EC-02",
+      "name": "后端盖",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 9,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-06",
+      "unitCost": 21.0,
+      "scrap": 0
+    },
+    {
+      "id": "FN-01",
+      "name": "散热风扇",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 5,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-07",
+      "unitCost": 23.6,
+      "scrap": 0
+    },
+    {
+      "id": "FC-01",
+      "name": "风罩",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 7,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-01",
+      "unitCost": 26.2,
+      "scrap": 0
+    },
+    {
+      "id": "TB-01",
+      "name": "接线盒",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 8,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-02",
+      "unitCost": 28.8,
+      "scrap": 0
+    },
+    {
+      "id": "TM-01",
+      "name": "接线端子",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 6,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-03",
+      "unitCost": 31.4,
+      "scrap": 0
+    },
+    {
+      "id": "GS-01",
+      "name": "密封垫",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 5,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-04",
+      "unitCost": 34.0,
+      "scrap": 0
+    },
+    {
+      "id": "BL-01",
+      "name": "紧固螺栓 M8",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 4,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-05",
+      "unitCost": 36.6,
+      "scrap": 0
+    },
+    {
+      "id": "WS-01",
+      "name": "弹簧垫圈",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 4,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-06",
+      "unitCost": 39.2,
+      "scrap": 0
+    },
+    {
+      "id": "LB-01",
+      "name": "铭牌",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 5,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-07",
+      "unitCost": 41.8,
+      "scrap": 0
+    },
+    {
+      "id": "PK-01",
+      "name": "包装箱",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 4,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-01",
+      "unitCost": 44.4,
+      "scrap": 0
+    },
+    {
+      "id": "SC-01",
+      "name": "定子冲片叠压件",
+      "type": "MAKE",
+      "uom": "EA",
+      "leadDays": 2,
+      "moq": 1,
+      "lot": 1,
+      "supplier": null,
+      "unitCost": 47.0,
+      "scrap": 0
+    },
+    {
+      "id": "CW-01",
+      "name": "定子绕组",
+      "type": "MAKE",
+      "uom": "EA",
+      "leadDays": 2,
+      "moq": 1,
+      "lot": 1,
+      "supplier": null,
+      "unitCost": 49.6,
+      "scrap": 0
+    },
+    {
+      "id": "RC-01",
+      "name": "转子铁芯",
+      "type": "MAKE",
+      "uom": "EA",
+      "leadDays": 2,
+      "moq": 1,
+      "lot": 1,
+      "supplier": null,
+      "unitCost": 52.2,
+      "scrap": 0
+    },
+    {
+      "id": "SH-01",
+      "name": "电机转轴",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 12,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-05",
+      "unitCost": 54.8,
+      "scrap": 0
+    },
+    {
+      "id": "CU-01",
+      "name": "漆包铜线",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 14,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-06",
+      "unitCost": 57.4,
+      "scrap": 0.03
+    },
+    {
+      "id": "SI-01",
+      "name": "硅钢片",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 14,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-07",
+      "unitCost": 60.0,
+      "scrap": 0.02
+    },
+    {
+      "id": "IN-01",
+      "name": "槽绝缘纸",
+      "type": "BUY",
+      "uom": "M",
+      "leadDays": 7,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-01",
+      "unitCost": 62.6,
+      "scrap": 0.02
+    },
+    {
+      "id": "IM-01",
+      "name": "浸渍绝缘漆",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 12,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-02",
+      "unitCost": 65.2,
+      "scrap": 0.04
+    },
+    {
+      "id": "WG-01",
+      "name": "绕组引接线",
+      "type": "BUY",
+      "uom": "M",
+      "leadDays": 6,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-03",
+      "unitCost": 67.8,
+      "scrap": 0
+    },
+    {
+      "id": "SK-01",
+      "name": "轴键",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 6,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-04",
+      "unitCost": 70.4,
+      "scrap": 0
+    },
+    {
+      "id": "RB-01",
+      "name": "转子铝条",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 13,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-05",
+      "unitCost": 73.0,
+      "scrap": 0.03
+    },
+    {
+      "id": "RN-01",
+      "name": "转子端环",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 10,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-06",
+      "unitCost": 75.6,
+      "scrap": 0
+    },
+    {
+      "id": "SP-01",
+      "name": "轴用挡圈",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 5,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-07",
+      "unitCost": 78.2,
+      "scrap": 0
+    },
+    {
+      "id": "GR-01",
+      "name": "润滑脂",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 7,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-01",
+      "unitCost": 80.8,
+      "scrap": 0
+    },
+    {
+      "id": "CP-01",
+      "name": "防护涂层",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 8,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-02",
+      "unitCost": 83.4,
+      "scrap": 0
+    },
+    {
+      "id": "SE-01",
+      "name": "密封胶",
+      "type": "BUY",
+      "uom": "KG",
+      "leadDays": 8,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-03",
+      "unitCost": 86.0,
+      "scrap": 0
+    },
+    {
+      "id": "TR-01",
+      "name": "热缩管",
+      "type": "BUY",
+      "uom": "M",
+      "leadDays": 5,
+      "moq": 1,
+      "lot": 1,
+      "supplier": "SUP-04",
+      "unitCost": 88.6,
+      "scrap": 0
+    },
+    {
+      "id": "CT-01",
+      "name": "电缆接头",
+      "type": "BUY",
+      "uom": "EA",
+      "leadDays": 7,
+      "moq": 20,
+      "lot": 10,
+      "supplier": "SUP-05",
+      "unitCost": 91.2,
+      "scrap": 0
+    }
+  ],
+  "bom": [
+    {
+      "parent": "EM-100",
+      "child": "ST-100",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "RT-100",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "BR-01",
+      "qty": 2,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "HS-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "EC-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "EC-02",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "FN-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "FC-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "TB-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "TM-01",
+      "qty": 6,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "GS-01",
+      "qty": 2,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "BL-01",
+      "qty": 12,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "WS-01",
+      "qty": 12,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "LB-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "PK-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "ST-100",
+      "child": "SC-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "ST-100",
+      "child": "CW-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RT-100",
+      "child": "RC-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RT-100",
+      "child": "SH-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "CW-01",
+      "child": "CU-01",
+      "qty": 3.2,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "SC-01",
+      "child": "SI-01",
+      "qty": 12.5,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "CW-01",
+      "child": "IN-01",
+      "qty": 6,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "CW-01",
+      "child": "IM-01",
+      "qty": 0.45,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "CW-01",
+      "child": "WG-01",
+      "qty": 2.5,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RT-100",
+      "child": "SK-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RC-01",
+      "child": "RB-01",
+      "qty": 1.8,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RC-01",
+      "child": "RN-01",
+      "qty": 2,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RT-100",
+      "child": "SP-01",
+      "qty": 2,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "RT-100",
+      "child": "GR-01",
+      "qty": 0.08,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "HS-01",
+      "child": "CP-01",
+      "qty": 0.25,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EC-01",
+      "child": "SE-01",
+      "qty": 0.06,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "ST-100",
+      "child": "TR-01",
+      "qty": 0.5,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "TB-01",
+      "child": "CT-01",
+      "qty": 1,
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "parent": "EM-100",
+      "child": "BL-01",
+      "qty": 14,
+      "version": "BOM-EM100-V2",
+      "effective_from": "2026-12-15"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-01",
+      "name": "华东精密轴承",
+      "onTimeRate": 0.94,
+      "leadDays": 7,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-01-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-003",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-006",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-01-007",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-008",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-010",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-011",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-013",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-016",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-018",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-019",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-021",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-022",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-025",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-01-026",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-027",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-030",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-033",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-01-034",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-035",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-037",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-038",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-040",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-043",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-045",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-046",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-048",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-049",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-052",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-01-053",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-054",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-057",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-060",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-01-061",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-064",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-065",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-067",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-070",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-072",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-073",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-075",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-076",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-079",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-01-080",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-081",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-084",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-091",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-092",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-094",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-097",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-099",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-01-100",
+            "delay_days": 0,
+            "on_time": true
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    },
+    {
+      "id": "SUP-02",
+      "name": "苏南铸造工厂",
+      "onTimeRate": 0.89,
+      "leadDays": 12,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-02-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-003",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-006",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-007",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-008",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-010",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-011",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-013",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-016",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-018",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-019",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-021",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-022",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-025",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-026",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-027",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-030",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-033",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-034",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-035",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-037",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-038",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-040",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-043",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-045",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-046",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-048",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-049",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-052",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-053",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-054",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-057",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-060",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-061",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-064",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-065",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-067",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-070",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-072",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-073",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-075",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-076",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-079",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-080",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-081",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-084",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-091",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-092",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-02-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-094",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-097",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-099",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-02-100",
+            "delay_days": 0,
+            "on_time": true
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    },
+    {
+      "id": "SUP-03",
+      "name": "金陵电磁材料",
+      "onTimeRate": 0.91,
+      "leadDays": 14,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-03-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-003",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-006",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-007",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-008",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-010",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-011",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-013",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-016",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-018",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-019",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-021",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-022",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-025",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-026",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-027",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-030",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-033",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-034",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-035",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-037",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-038",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-040",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-043",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-045",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-046",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-048",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-049",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-052",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-053",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-054",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-057",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-060",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-061",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-064",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-065",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-067",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-070",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-072",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-073",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-075",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-076",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-079",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-080",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-081",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-03-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-084",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-091",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-092",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-094",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-097",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-099",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-03-100",
+            "delay_days": 2,
+            "on_time": false
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    },
+    {
+      "id": "SUP-04",
+      "name": "长三角机加工",
+      "onTimeRate": 0.96,
+      "leadDays": 8,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-04-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-003",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-006",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-007",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-008",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-010",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-011",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-013",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-016",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-04-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-018",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-019",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-021",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-022",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-025",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-026",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-027",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-030",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-033",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-034",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-035",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-037",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-038",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-040",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-043",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-04-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-045",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-046",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-048",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-049",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-052",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-053",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-054",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-057",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-060",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-061",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-064",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-065",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-067",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-070",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-04-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-072",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-073",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-075",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-076",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-079",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-080",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-081",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-084",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-091",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-092",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-094",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-097",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-04-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-099",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-04-100",
+            "delay_days": 0,
+            "on_time": true
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    },
+    {
+      "id": "SUP-05",
+      "name": "江海工业电气",
+      "onTimeRate": 0.93,
+      "leadDays": 6,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-05-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-003",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-006",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-007",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-008",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-010",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-011",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-013",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-016",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-018",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-019",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-021",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-022",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-025",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-026",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-027",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-030",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-033",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-034",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-035",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-037",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-038",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-040",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-043",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-045",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-046",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-048",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-049",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-052",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-053",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-054",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-057",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-060",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-061",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-064",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-065",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-067",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-070",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-072",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-073",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-075",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-076",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-079",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-080",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-081",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-084",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-091",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-092",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-094",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-05-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-097",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-099",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-05-100",
+            "delay_days": 0,
+            "on_time": true
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    },
+    {
+      "id": "SUP-06",
+      "name": "中原绝缘材料",
+      "onTimeRate": 0.87,
+      "leadDays": 10,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-06-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-003",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-006",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-007",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-008",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-010",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-011",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-013",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-016",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-018",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-019",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-021",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-022",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-025",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-026",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-027",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-030",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-033",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-034",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-035",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-037",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-038",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-040",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-043",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-045",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-046",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-048",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-049",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-052",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-053",
+            "delay_days": 1,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-054",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-057",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-060",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-061",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-064",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-065",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-067",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-070",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-072",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-073",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-075",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-076",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-079",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-080",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-081",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-084",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-091",
+            "delay_days": 2,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-092",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-094",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-097",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-06-099",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-06-100",
+            "delay_days": 0,
+            "on_time": true
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    },
+    {
+      "id": "SUP-07",
+      "name": "华北包装辅材",
+      "onTimeRate": 0.97,
+      "leadDays": 4,
+      "simulated_delivery_history": {
+        "sample_size": 100,
+        "records": [
+          {
+            "delivery_id": "SIM-SUP-07-001",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-002",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-003",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-004",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-005",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-006",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-007",
+            "delay_days": 5,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-07-008",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-009",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-010",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-011",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-012",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-013",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-014",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-015",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-016",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-017",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-018",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-019",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-020",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-021",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-022",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-023",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-024",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-025",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-026",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-027",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-028",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-029",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-030",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-031",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-032",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-033",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-034",
+            "delay_days": 4,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-07-035",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-036",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-037",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-038",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-039",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-040",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-041",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-042",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-043",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-044",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-045",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-046",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-047",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-048",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-049",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-050",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-051",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-052",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-053",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-054",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-055",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-056",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-057",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-058",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-059",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-060",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-061",
+            "delay_days": 3,
+            "on_time": false
+          },
+          {
+            "delivery_id": "SIM-SUP-07-062",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-063",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-064",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-065",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-066",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-067",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-068",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-069",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-070",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-071",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-072",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-073",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-074",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-075",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-076",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-077",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-078",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-079",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-080",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-081",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-082",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-083",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-084",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-085",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-086",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-087",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-088",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-089",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-090",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-091",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-092",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-093",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-094",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-095",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-096",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-097",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-098",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-099",
+            "delay_days": 0,
+            "on_time": true
+          },
+          {
+            "delivery_id": "SIM-SUP-07-100",
+            "delay_days": 0,
+            "on_time": true
+          }
+        ],
+        "source_type": "SYNTHETIC_SCENARIO_GENERATED",
+        "description": "确定性生成的仿真交付样本；非真实供应商履约记录"
+      }
+    }
+  ],
+  "workcenters": [
+    {
+      "id": "WC-ST",
+      "name": "定子绕线及浸漆",
+      "cycleHours": 3.5
+    },
+    {
+      "id": "WC-RT",
+      "name": "转子加工与动平衡",
+      "cycleHours": 2.8
+    },
+    {
+      "id": "WC-AS",
+      "name": "总装",
+      "cycleHours": 2.1
+    },
+    {
+      "id": "WC-QA",
+      "name": "耐压与性能测试",
+      "cycleHours": 1.1
+    },
+    {
+      "id": "WC-PK",
+      "name": "包装入库",
+      "cycleHours": 0.5
+    }
+  ],
+  "scenarios": {
+    "normal": {
+      "name": "A · 正常生产",
+      "orders": [
+        {
+          "id": "SO-2601",
+          "product": "EM-100",
+          "qty": 40,
+          "finished": 20,
+          "due": "2026-12-20",
+          "priority": 1
+        },
+        {
+          "id": "SO-2602",
+          "product": "EM-100",
+          "qty": 25,
+          "finished": 10,
+          "due": "2026-12-28",
+          "priority": 2
+        }
+      ],
+      "stockMultiplier": 1.4,
+      "delayDays": 0,
+      "mappingBlocked": false,
+      "as_of": "2026-11-03",
+      "scheduledReceipts": {
+        "HS-01": [
+          {
+            "date": "2026-12-22",
+            "qty": 62,
+            "source": "PO-HS-2026-12"
+          }
+        ],
+        "BR-01": [
+          {
+            "date": "2026-12-23",
+            "qty": 84,
+            "source": "PO-BR-2026-12"
+          }
+        ]
+      }
+    },
+    "shortage": {
+      "name": "B · 关键物料短缺",
+      "orders": [
+        {
+          "id": "SO-2603",
+          "product": "EM-100",
+          "qty": 110,
+          "finished": 12,
+          "due": "2026-12-18",
+          "priority": 1
+        },
+        {
+          "id": "SO-2604",
+          "product": "EM-100",
+          "qty": 60,
+          "finished": 0,
+          "due": "2026-12-25",
+          "priority": 2
+        }
+      ],
+      "stockMultiplier": 0.15,
+      "delayDays": 0,
+      "mappingBlocked": false,
+      "as_of": "2026-11-03",
+      "scheduledReceipts": {
+        "HS-01": [
+          {
+            "date": "2026-12-22",
+            "qty": 6,
+            "source": "PO-HS-2026-12"
+          }
+        ],
+        "BR-01": [
+          {
+            "date": "2026-12-23",
+            "qty": 9,
+            "source": "PO-BR-2026-12"
+          }
+        ]
+      }
+    },
+    "delay": {
+      "name": "C · 生产延期",
+      "orders": [
+        {
+          "id": "SO-2605",
+          "product": "EM-100",
+          "qty": 80,
+          "finished": 18,
+          "due": "2026-11-25",
+          "priority": 1
+        },
+        {
+          "id": "SO-2606",
+          "product": "EM-100",
+          "qty": 40,
+          "finished": 5,
+          "due": "2026-12-05",
+          "priority": 2
+        }
+      ],
+      "stockMultiplier": 0.65,
+      "delayDays": 8,
+      "mappingBlocked": false,
+      "as_of": "2026-11-03",
+      "scheduledReceipts": {
+        "HS-01": [
+          {
+            "date": "2026-12-22",
+            "qty": 29,
+            "source": "PO-HS-2026-12"
+          }
+        ],
+        "BR-01": [
+          {
+            "date": "2026-12-23",
+            "qty": 39,
+            "source": "PO-BR-2026-12"
+          }
+        ]
+      }
+    },
+    "bom_change": {
+      "name": "D · BOM 映射异常",
+      "orders": [
+        {
+          "id": "SO-2607",
+          "product": "EM-100",
+          "qty": 75,
+          "finished": 0,
+          "due": "2026-12-12",
+          "priority": 1
+        },
+        {
+          "id": "SO-2608",
+          "product": "EM-100",
+          "qty": 30,
+          "finished": 0,
+          "due": "2026-12-19",
+          "priority": 2
+        }
+      ],
+      "stockMultiplier": 0.85,
+      "delayDays": 0,
+      "mappingBlocked": true,
+      "as_of": "2026-11-03",
+      "scheduledReceipts": {
+        "HS-01": [
+          {
+            "date": "2026-12-22",
+            "qty": 38,
+            "source": "PO-HS-2026-12"
+          }
+        ],
+        "BR-01": [
+          {
+            "date": "2026-12-23",
+            "qty": 51,
+            "source": "PO-BR-2026-12"
+          }
+        ]
+      }
+    }
+  },
+  "bom_versions": [
+    {
+      "version": "BOM-EM100-V1",
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-12-14",
+      "status": "RELEASED"
+    },
+    {
+      "version": "BOM-EM100-V2",
+      "effective_from": "2026-12-15",
+      "effective_to": null,
+      "status": "RELEASED"
+    }
+  ]
+}
