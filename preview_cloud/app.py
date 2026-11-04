@@ -154,8 +154,8 @@ def create_app():
         from app.db.repository import connect
         try:
             with connect() as conn:
-                row=conn.execute('SELECT to_regclass(%s)',('version_b_rc2.workflow_states',)).fetchone()
-                if row[0] is None:raise ValueError('MIGRATIONS_MISSING')
+                row=conn.execute('SELECT to_regclass(%s), current_setting(%s)',('version_b_rc2.workflow_states','server_version_num')).fetchone()
+                if row[0] is None or not row[1].startswith('16'):raise ValueError('MIGRATIONS_OR_PG16_MISSING')
             return {'status':'ready','database':'postgresql','scope':'preview_only'}
         except Exception:
             return JSONResponse({'status':'unavailable','database':'unready'},status_code=503)

@@ -1,3 +1,5 @@
+> **RC2 UPDATE:** For the current cumulative package, run `RUN_PUSH_V19B_RC2.ps1` (not the historic RC1 upload script). Details in `README_CLOUD_RC2.md`.
+
 # Industrial AI PaaS Lab V1.9 — Version B, public-cloud preview candidate
 
 **Isolated deployment, NOT the old RC4 Frozen bundle.** Does not claim production ERP/MES/SRM writes or production security certification.
