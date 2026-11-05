@@ -112,3 +112,44 @@
 /* Prevent the browser-only toolbar from falsely describing the PG16 enterprise workspace. */
 .vbc-body-active .topright{display:none!important}
 .vbc-body-active .sidebarbottom{display:none!important}
+
+/* RC3.2: enterprise-first discoverability. */
+#vbConsoleNav{background:linear-gradient(105deg,#21466d,#17666b);border:1px solid #377b88;color:#fff;font-weight:800;line-height:1.45;white-space:normal;min-height:52px;box-shadow:0 5px 15px #0a172c35}
+#vbConsoleNav:hover,#vbConsoleNav.active{background:linear-gradient(105deg,#2e5be0,#166c75);border-color:#6bd5cc;color:#fff;box-shadow:inset 3px 0 #7ef0d5,0 6px 17px #0a172c35}
+.sidebar .vbc-nav-label{color:#79dfd3;font-weight:750;letter-spacing:.5px}
+@media(max-width:900px){#vbConsoleNav{min-width:max-content;min-height:44px}}
+
+/* RC3.3: business-first enterprise MRP document workspace */
+#vbConsole .vbc-business-head{display:flex;align-items:center;justify-content:space-between;gap:22px;background:linear-gradient(110deg,#12314e,#18536b);color:white;border-radius:18px;padding:25px 29px;margin-bottom:14px}
+#vbConsole .vbc-business-head h1{font-size:25px;margin:8px 0 6px;color:white}
+#vbConsole .vbc-business-head p{color:#dcecf4;margin:0}
+#vbConsole .vbc-business-status{display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-width:320px;text-align:right}
+#vbConsole .vbc-business-status strong{font-size:14px;color:white}
+#vbConsole .vbc-business-guide,#vbConsole .vbc-session,#vbConsole .vbc-technical{background:white;border:1px solid #dbe5ed;border-radius:12px;margin:12px 0;padding:16px 19px}
+#vbConsole .vbc-business-guide summary,#vbConsole .vbc-technical>summary{font-weight:700;cursor:pointer;color:#214765}
+#vbConsole .vbc-business-guide p{font-size:14px;line-height:1.8;color:#43586a}
+#vbConsole .vbc-session{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#f1f7fa}
+#vbConsole .vbc-session p{margin:5px 0 0;color:#52687a;font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+#vbConsole .vbc-business-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 20px}
+#vbConsole .vbc-business-overview>div{background:#fff;border:1px solid #dae5ed;border-radius:12px;padding:17px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#vbConsole .vbc-business-overview span:not(.vbc-chip),#vbConsole .vbc-business-metrics span{font-size:12px;color:#5d7385}
+#vbConsole .vbc-business-overview strong{overflow-wrap:anywhere;font-size:15px;color:#163a55}
+#vbConsole .vbc-business-actions,#vbConsole .vbc-business-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:18px}
+#vbConsole .vbc-business-card{background:white;border:1px solid #dce5ed;border-radius:14px;padding:19px 21px;min-width:0;box-shadow:0 3px 12px #142c4210}
+#vbConsole .vbc-business-card h2{font-size:16px;margin:0 0 15px;color:#163c59}
+#vbConsole .vbc-business-card .vbc-field{margin:9px 0}
+#vbConsole .vbc-business-card .vbc-action-row{display:flex;flex-wrap:wrap;gap:9px}
+#vbConsole .vbc-business-card button:disabled{opacity:.38;cursor:not-allowed;filter:grayscale(.55)}
+#vbConsole .vbc-business-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#vbConsole .vbc-business-metrics>div{background:#f3f7fb;border-radius:9px;padding:14px;display:flex;flex-direction:column;gap:6px}
+#vbConsole .vbc-business-metrics strong{font-size:22px;color:#143f61}
+#vbConsole .vbc-business-timeline{list-style:none;margin:0;padding:0 0 0 21px;border-left:2px solid #b9d6df}
+#vbConsole .vbc-business-timeline li{position:relative;padding:0 0 20px 17px;display:flex;flex-direction:column;gap:4px}
+#vbConsole .vbc-business-timeline li:before{content:'';position:absolute;left:-27px;top:5px;width:10px;height:10px;background:#278e8c;border:3px solid white;box-shadow:0 0 0 1px #9cc8c8;border-radius:50%}
+#vbConsole .vbc-business-timeline strong{font-size:14px;color:#244a60}
+#vbConsole .vbc-business-timeline span,#vbConsole .vbc-business-timeline small{font-size:12px;color:#60778b}
+#vbConsole .vbc-technical{margin-top:22px}
+#vbConsole .vbc-technical details{margin:13px 0}
+#vbConsole .vbc-technical .vbc-pane{margin-top:15px}
+@media(max-width:980px){#vbConsole .vbc-business-overview{grid-template-columns:repeat(2,minmax(0,1fr))}#vbConsole .vbc-business-actions,#vbConsole .vbc-business-results{grid-template-columns:1fr}}
+@media(max-width:600px){#vbConsole .vbc-business-head{flex-direction:column;align-items:flex-start;padding:20px}#vbConsole .vbc-business-status{align-items:flex-start;text-align:left}#vbConsole .vbc-business-overview{grid-template-columns:1fr 1fr}#vbConsole .vbc-session{flex-direction:column;align-items:flex-start}#vbConsole .vbc-business-card{padding:15px}}
