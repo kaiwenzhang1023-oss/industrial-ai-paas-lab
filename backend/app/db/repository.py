@@ -3,9 +3,9 @@ Writes one MRP run, daily lines and pegs atomically; reads persisted source
 records back into the pure planning engine. No silent JSON fallback.
 """
 import hashlib, json, os, uuid
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from decimal import Decimal
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from app.domain.timephased import Item, Order
 from app.domain.pegging import allocate
@@ -69,6 +69,47 @@ def load_snapshot(conn,as_of='2026-10-29'):
         bom=cur.fetchall()
     return orders,items,bom
 
+# RC3.4: isolated, immutable in-memory scenario overlays. These NEVER update
+# shared mock_erp / mock_wms source tables, avoiding cross-tenant data leakage.
+SCENARIOS = {
+    'A': '正常生产', 'B': '关键物料短缺',
+    'C': '客户交期顺延7天', 'D': 'BOM首行用量翻倍异常',
+}
+
+def apply_scenario(orders, items, bom, scenario):
+    if scenario not in SCENARIOS:
+        raise ValueError('UNKNOWN_MRP_SCENARIO')
+    if scenario == 'A':
+        return orders, items, bom
+    if scenario == 'B':
+        # Zero usable stock for the first purchased BOM component actually
+        # required by an order; do not change the source inventory table.
+        components = {child for _, child, _ in bom}
+        eligible = sorted(k for k, v in items.items() if k in components and v.kind == 'BUY')
+        if not eligible:
+            raise ValueError('SCENARIO_REQUIRES_PURCHASED_COMPONENT')
+        code = eligible[0]
+        updated = dict(items)
+        updated[code] = replace(items[code], on_hand=Decimal(0), reserved=Decimal(0), blocked=Decimal(0), receipts=())
+        return orders, updated, bom
+    if scenario == 'C':
+        if not orders:
+            raise ValueError('SCENARIO_REQUIRES_ORDERS')
+        # Simulate a customer-agreed seven-day delivery postponement. The
+        # demo engine has no finite-capacity MES scheduling model.
+        delayed = [replace(o, due=(date.fromisoformat(o.due) + timedelta(days=7)).isoformat())
+                   for o in orders]
+        return delayed, items, bom
+    if not bom:
+        raise ValueError('SCENARIO_REQUIRES_BOM')
+    # Deliberately abnormal but computable BOM consumption: allows the
+    # approver to reject based on the flagged exception, without pretending
+    # that an invalid BOM mapping was successfully executed.
+    updated = list(bom)
+    parent, child, qty = updated[0]
+    updated[0] = (parent, child, Decimal(str(qty)) * Decimal('2'))
+    return orders, items, updated
+
 # All source tables must be locked before the first snapshot read. SHARE locks
 # conflict with concurrent INSERT/UPDATE/DELETE (ROW EXCLUSIVE), ensuring that
 # the fingerprint and persisted plan refer to the same committed source state.
@@ -106,7 +147,7 @@ def _read_versions(conn):
     return {'orders': orders, 'inventory': inventory}
 
 
-def calculate_and_save(conn, as_of='2026-10-29', run_id=None, *, rc2_identity=None):
+def calculate_and_save(conn, as_of='2026-10-29', run_id=None, *, rc2_identity=None, scenario='A'):
     # Requires a fresh connection / no existing transaction. psycopg transaction
     # context commits the plan and releases source locks atomically.
     if conn.info.transaction_status.name != 'IDLE':
@@ -119,6 +160,8 @@ def calculate_and_save(conn, as_of='2026-10-29', run_id=None, *, rc2_identity=No
                 cur.execute(f'LOCK TABLE {table} IN SHARE MODE')
         orders, items, bom = load_snapshot(conn, as_of)
         versions = _read_versions(conn)
+        orders, items, bom = apply_scenario(orders, items, bom, scenario)
+        versions['scenario'] = {'code': scenario, 'name': SCENARIOS[scenario], 'source': 'ISOLATED_IN_MEMORY_OVERLAY', 'requires_review': scenario == 'D'}
         input_hash = _snapshot_hash(as_of, orders, items, bom)
         order_hash = hashlib.sha256('|'.join(sorted(o.order_id for o in orders)).encode()).hexdigest()
         lines, pegs = allocate(orders, items, bom, as_of)
@@ -157,7 +200,7 @@ def calculate_and_save(conn, as_of='2026-10-29', run_id=None, *, rc2_identity=No
                     (tenant,run_id,input_hash,json.dumps(snapshot,sort_keys=True,default=str)))
     return {'run_id':run_id,'input_hash':input_hash,
             'lines':len(lines),'pegs':len(pegs),'snapshot_versions':versions,
-            'isolation':'REPEATABLE READ','source_fence':'SHARE TABLE LOCK'}
+            'isolation':'REPEATABLE READ','source_fence':'SHARE TABLE LOCK','scenario':scenario}
 
 def read_run(conn,run_id):
     with conn.cursor() as cur:

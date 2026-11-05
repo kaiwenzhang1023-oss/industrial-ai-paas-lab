@@ -23,6 +23,9 @@ class Identity(BaseModel):
     tenant: str
     role: str
 
+class MRPCreate(BaseModel):
+    scenario: Literal['A','B','C','D'] = 'A'
+
 class Decision(BaseModel):
     run_id: str = Field(min_length=1, max_length=128)
     decision: Literal['APPROVED','REJECTED']
@@ -100,12 +103,12 @@ def _command(conn,i,command_id):
 def me(i: Identity=Depends(identity)): return i.model_dump()
 
 @router.post('/mrp/runs',status_code=201)
-def mrp_run(i: Identity=Depends(identity)):
+def mrp_run(body: MRPCreate | None = None, i: Identity=Depends(identity)):
     require(i,{'planner','admin'})
     try:
         with pg() as conn:
             # Tenant registration, snapshot, workflow and plan all commit together.
-            result=calculate_and_save(conn,rc2_identity=(i.tenant,i.actor))
+            result=calculate_and_save(conn,rc2_identity=(i.tenant,i.actor),scenario=(body.scenario if body else 'A'))
         return {'tenant':i.tenant,'source':'postgresql','simulation':False,**result}
     except HTTPException:raise
     except ValueError:raise HTTPException(422,detail='MRP_VALIDATION_ERROR')
