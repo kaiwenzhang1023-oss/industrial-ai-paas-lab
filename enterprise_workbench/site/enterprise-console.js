@@ -1,10 +1,14 @@
 /* Industrial AI PaaS Lab — Version B Enterprise Console RC3.
  * UI-only, cumulative on RC2. All business state comes from the RC2 backend.
- * No credential persistence, cross-tenant run sharing or external ERP/MES/SRM writes.
+ * Tab-scoped short-lived sessionStorage is used for reload continuity (not localStorage).
+ * No cross-tenant run sharing or external ERP/MES/SRM writes.
  */
 (()=>{
 'use strict';
 const api='/api/v1/version-b/enterprise';
+const SESSION_KEY='v19b_rc35_tab_session';
+function forgetTabSession(){try{sessionStorage.removeItem(SESSION_KEY)}catch{}}
+function rememberTabSession(token,session){try{sessionStorage.setItem(SESSION_KEY,JSON.stringify({token,tenant:session.tenant,expiresAt:Date.now()+Math.min(7200,Number(session.expires_in||7200))*1000}))}catch{}}
 const main=document.querySelector('main.main .content');
 const nav=document.getElementById('nav');
 if(!main||!nav) return;
@@ -66,7 +70,7 @@ function businessTimeline(){const events=state.overview?.events||state.workflow?
 function businessPage(){const dec=decision(),cmd=command(),receipt=cmd?.receipt,lines=state.run?.lines||[],pegs=state.run?.pegs||[];const gross=lines.reduce((n,x)=>n+(Number(x.gross)||0),0),net=lines.reduce((n,x)=>n+(Number(x.net)||0),0),planned=lines.reduce((n,x)=>n+(Number(x.planned)||0),0);const sourceOrders=state.snapshot?.orders||[];const shortageMaterials=new Set(lines.filter(x=>Number(x.net)>0).map(x=>x.material));const purchaseItems=state.snapshot?.items||{};const purchaseSuggestions=lines.filter(x=>Number(x.planned)>0&&purchaseItems[x.material]?.kind==='BUY');const sourceScenario=state.run?.snapshot?.source_versions?.scenario;const ready=isReady(),has=hasRun(),review=isReviewable(),exec=canExecute(),finished=!!receipt&&cmd?.status==='DONE';const statusValue=status();return `
 <section class="vbc-business-head"><div><div class="vbc-eyebrow">VERSION B · 企业业务单据演示</div><h1>MRP 企业闭环执行中心</h1><p>从物料计划、人工审批到内部校验、执行回执和审计追溯</p></div><div class="vbc-business-status">${businessBadge(statusValue)}<strong>${E(flowNext())}</strong></div></section>
 <details class="vbc-business-guide"><summary>了解演示范围与 Version A / Version B 的区别</summary><p>Version A 及左侧「MRP 计划」为浏览器本地模拟；本页面 Version B 使用企业数据库保存计划单、审批、执行回执与审计记录。两套 MRP 当前不自动同步。</p><p><strong>重要边界：</strong>只进行内部业务逻辑校验，不向 MES、SRM 或真实工厂下发生产、采购指令。演示数据为样例数据。</p></details>
-<div class="vbc-session"><div><strong>访客演示会话</strong><p>${ready?'已连接独立演示租户：'+E(state.session.tenant):'尚未建立访客会话'}。业务记录存入数据库；刷新页面会丢失临时身份，需要重新开始会话。请勿把单据编号当作访问凭据。</p></div>${ready?`<button class="vbc-btn tiny" data-action="logout" ${busyAttr()}>退出访客会话</button>`:`<button class="vbc-btn primary" data-action="connect" ${busyAttr(state.ready)}>开始访客演示</button>`}</div>
+<div class="vbc-session"><div><strong>访客演示会话</strong><p>${ready?'已连接独立演示租户：'+E(state.session.tenant):'尚未建立访客会话'}。业务记录存入数据库；同一标签页刷新可在令牌有效期内恢复租户会话；关闭标签页或退出后身份失效。请勿把单据编号当作访问凭据。</p></div>${ready?`<button class="vbc-btn tiny" data-action="logout" ${busyAttr()}>退出访客会话</button>`:`<button class="vbc-btn primary" data-action="connect" ${busyAttr(state.ready)}>开始访客演示</button>`}</div>
 <div class="vbc-business-overview"><div><span>MRP 计划单编号</span><strong>${E(state.runId||'尚未生成')}</strong></div><div><span>当前状态</span>${businessBadge(statusValue)}</div><div><span>审批结果</span><strong>${E(dec?friendly(dec.type):'尚未审批')}</strong></div><div><span>执行结果</span><strong>${E(cmd?friendly(cmd.status):'尚未执行')}</strong></div></div>
 <div class="vbc-business-actions">${businessCard('01 · 计划单操作',`<label class="vbc-field">选择生产业务场景<select data-bind="scenario" ${busyAttr(ready)}><option value="A" ${state.scenario==='A'?'selected':''}>A · 正常生产</option><option value="B" ${state.scenario==='B'?'selected':''}>B · 关键物料短缺</option><option value="C" ${state.scenario==='C'?'selected':''}>C · 客户交期顺延 7 天</option><option value="D" ${state.scenario==='D'?'selected':''}>D · BOM 用量翻倍异常（需人工核对）</option></select></label><p class="vbc-low">四种场景在后端生成不同的计算快照；不会修改其他访客的共享样例源表。D 场景用于演示人工识别与驳回异常。</p><div class="vbc-action-row"><button class="vbc-btn primary" data-action="create" ${busyAttr(ready)}>生成 MRP 计划单</button><button class="vbc-btn" data-action="lookup" ${busyAttr(ready&&!!state.runInput.trim())}>查询计划单</button><button class="vbc-btn" data-action="refresh" ${busyAttr(has)}>刷新单据及状态</button><button class="vbc-btn" data-action="reset-flow" ${busyAttr(ready&&!!state.runId)}>重置当前演示流程</button></div><label class="vbc-field">查询本访客租户的计划单编号<input data-bind="runInput" value="${E(state.runInput||state.runId)}" placeholder="输入 MRP 单据编号"></label><p class="vbc-low">重置仅清空页面选择，不删除数据库历史单据。</p>`)}
 ${businessCard('02 · 人工审批',`<label class="vbc-field">审批意见模板<select data-action="reason-template" ${busyAttr(review)}><option value="">选择常用审批意见</option><option value="MRP物料计划已核对，批准进入内部执行流程">计划核对通过</option><option value="BOM/库存校验不通过，驳回，请核对物料数据">物料数据需要修正</option></select></label><label class="vbc-field">审批意见<textarea data-bind="reason" maxlength="1000" placeholder="例如：MRP物料计划已核对，批准进入内部执行流程" ${busyAttr(review)}>${E(state.reason)}</textarea></label><div class="vbc-action-row"><button class="vbc-btn teal" data-action="approve" ${busyAttr(review)}>批准计划</button><button class="vbc-btn danger" data-action="reject" ${busyAttr(review)}>驳回计划</button></div>`)}
@@ -89,7 +93,7 @@ async function request(path,{method='GET',body=null,auth=true,timeout=30000}={})
  if(!res.ok){if(res.status===401){clearSession();}const reasons={401:'访客会话已失效，请重新开始演示',403:'当前访客无权执行此操作',404:'找不到当前访客的计划单',409:'单据状态已变化，无法重复操作，请刷新确认',422:'业务数据不符合计算规则，请检查场景输入',429:'操作过于频繁，请稍后再试',503:'企业服务暂不可用，请稍后重试'};state.technicalError={http_status:res.status,details:data};throw Error(reasons[res.status]||'操作暂时失败，请稍后重试');}
  state.raw={path:(path==='/ready'||path.startsWith('/api/'))?path:api+path,method,data:path.includes('/preview/session')?{status:'SESSION_ISSUED',token_redacted:true}:data};return data;
 }
-function clearSession(){state.token='';state.session=null;state.runId='';state.runInput='';state.commandId='';state.run=null;state.snapshot=null;state.overview=null;state.command=null;state.workflow=null;state.lastWorker=null;state.advancedResponse=null;state.reason='MRP物料计划已核对，批准进入内部执行流程';try{localStorage.removeItem('v19b_last_run_id')}catch{}}
+function clearSession(){forgetTabSession();state.token='';state.session=null;state.runId='';state.runInput='';state.commandId='';state.run=null;state.snapshot=null;state.overview=null;state.command=null;state.workflow=null;state.lastWorker=null;state.advancedResponse=null;state.reason='MRP物料计划已核对，批准进入内部执行流程';try{localStorage.removeItem('v19b_last_run_id')}catch{}}
 async function fetchRun(id){
  if(!id)throw Error('请填写 Run ID');
  const data=await request('/mrp/runs/'+encodeURIComponent(id));
@@ -125,7 +129,7 @@ async function perform(action,handler){if(state.busy)return;state.busy=true;stat
 async function action(name,el){
  if(name==='reset-flow'){state.runId='';state.runInput='';state.commandId='';state.run=null;state.snapshot=null;state.overview=null;state.command=null;state.workflow=null;state.lastWorker=null;try{localStorage.removeItem('v19b_last_run_id')}catch{}state.message={text:'已清空当前页面流程，历史单据仍保存在企业数据库。',kind:'success'};render();return;}
  if(name==='nav'){state.view=el.dataset.view;state.message=null;render();return;}
- if(name==='logout'){clearSession();state.message={text:'已退出当前访客租户。会话令牌不保存在浏览器存储中。',kind:'success'};render();return;}
+ if(name==='logout'){clearSession();state.message={text:'已退出当前访客租户。已清除当前标签页的临时会话。',kind:'success'};render();return;}
  if(name==='line-kind'){state.lineKind=el.dataset.value;state.linePage=1;render();return;}
  if(name==='page-prev'||name==='page-next'){state.linePage=Math.max(1,state.linePage+(name==='page-next'?1:-1));render();return;}
  if(name==='copy-run'){if(state.runId){if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(state.runId);state.message={text:'已复制 Run ID（不含任何访客令牌）。',kind:'success'}}else{state.message={text:'请手动选择并复制 Run ID。',kind:''}}render();}return;}
@@ -140,6 +144,7 @@ async function action(name,el){
   state.token=issued.access_token;
   try{const who=await request('/me');if(who.tenant!==issued.tenant||!who.role)throw Error('访客身份校验不匹配');state.session=who;}
   catch(e){clearSession();throw e;}
+  rememberTabSession(state.token,{tenant:state.session.tenant,expires_in:issued.expires_in});
   return '访客演示会话已建立，现在可以选择业务场景并生成计划单。';
  }
  case 'create':{
@@ -197,5 +202,5 @@ root.addEventListener('toggle',e=>{if(e.target.id==='vbAdvanced')state.advanced=
 // Open the actual enterprise workflow on first load; do not strand visitors on the Version A-like simulation.
 activate();
 nav.scrollTop=0;
-(async()=>{try{const r=await request('/ready',{auth:false,timeout:15000});if(r.status!=='ready'||r.database!=='postgresql')throw Error('PG16 readiness not confirmed');state.ready=true;state.readiness='PostgreSQL 16 · 已就绪';}catch(e){state.ready=false;state.readiness='数据库尚未就绪';state.message={text:'企业数据库暂时无法连接，稍后再试。浏览器模拟实验室仍可使用。',kind:'error'}}try{const last=localStorage.getItem('v19b_last_run_id');if(last&&!state.runId){state.runInput=last;state.message={text:'已找回上次计划单编号。为保护租户数据，请重新建立原访客会话后才能查询；新会话不能访问旧租户记录。',kind:''}}}catch{}render()})();
+(async()=>{try{const r=await request('/ready',{auth:false,timeout:15000});if(r.status!=='ready'||r.database!=='postgresql')throw Error('PG16 readiness not confirmed');state.ready=true;state.readiness='PostgreSQL 16 · 已就绪';}catch(e){state.ready=false;state.readiness='数据库尚未就绪';state.message={text:'企业数据库暂时无法连接，稍后再试。浏览器模拟实验室仍可使用。',kind:'error'}}try{const saved=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null');if(saved&&typeof saved.token==='string'&&saved.expiresAt>Date.now()&&/^guest-[a-f0-9]{32}$/.test(saved.tenant||'')){state.token=saved.token;try{const who=await request('/me');if(who.tenant!==saved.tenant)throw Error('TENANT_MISMATCH');state.session=who;state.message={text:'已通过服务端验证并恢复当前标签页的独立租户会话。',kind:'success'};}catch(e){clearSession();state.message={text:'会话已失效，请重新建立独立访客会话。',kind:'error'};}}else if(saved){forgetTabSession();}}catch{forgetTabSession()}try{const last=localStorage.getItem('v19b_last_run_id');if(last&&!state.runId){state.runInput=last;if(state.session){try{await fetchRun(last);await fetchOverview();state.message={text:'已恢复当前租户的 MRP 运行和业务状态。',kind:'success'}}catch(e){state.message={text:'已恢复会话，但历史单据不可访问或已过期：'+e.message,kind:'error'}}}else{state.message={text:'仅恢复了 Run ID；新访客租户不能访问旧租户记录。',kind:''}}}}catch{}render()})();
 })();
