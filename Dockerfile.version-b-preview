@@ -1,0 +1,15 @@
+FROM python:3.14-slim
+WORKDIR /srv
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/srv:/srv/backend
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs ca-certificates && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir 'fastapi>=0.110,<1' 'uvicorn>=0.27,<1' 'pydantic>=2,<3' 'psycopg[binary]>=3.1,<4'
+COPY backend/app /srv/backend/app
+COPY enterprise_workbench /srv/enterprise_workbench
+COPY g3 /srv/g3
+COPY g4 /srv/g4
+COPY datasets /srv/datasets
+COPY preview_cloud /srv/preview_cloud
+RUN useradd --no-create-home --uid 10001 preview
+USER 10001:10001
+EXPOSE 10000
+CMD ["sh","-c","uvicorn preview_cloud.app:app --host 0.0.0.0 --port ${PORT:-10000} --workers 1"]

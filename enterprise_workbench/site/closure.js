@@ -1,0 +1,19 @@
+/* RC3 Business Closure: deterministic simulated evidence and append-only local audit. No backend writes. */
+(function(root){'use strict';
+const round=x=>Math.round((x+Number.EPSILON)*1000)/1000;
+const copy=x=>JSON.parse(JSON.stringify(x));
+function unitSummary(result,master,orderId='all'){
+ const unit=Object.fromEntries(master.items.map(i=>[i.id,i.uom||'UNSPECIFIED']));
+ const pegs=result.modules.pegging.filter(p=>orderId==='all'||p.order_id===orderId);
+ const by={};for(const p of pegs){const key=p.material_id+' / '+unit[p.material_id];const a=by[key]||(by[key]={material_id:p.material_id,uom:unit[p.material_id],gross_qty:0,planned_supply_qty:0,stock_allocated_qty:0});a.gross_qty=round(a.gross_qty+p.gross_qty);a.planned_supply_qty=round(a.planned_supply_qty+p.planned_supply_qty);a.stock_allocated_qty=round(a.stock_allocated_qty+p.stock_allocated_qty)}return Object.values(by).sort((a,b)=>a.material_id.localeCompare(b.material_id));
+}
+function purchaseAttribution(result,master,orderId='all'){
+ const costs=Object.fromEntries(master.items.map(i=>[i.id,Number(i.unitCost||0)]));
+ const rows=[];for(const pr of result.modules.purchase){const ps=result.modules.pegging.filter(p=>p.material_id===pr.material_id&&p.need_date===pr.need_date);const sum=ps.reduce((a,p)=>a+p.planned_supply_qty,0);let assigned=0;const grouped=new Map();for(const p of ps)grouped.set(p.order_id,(grouped.get(p.order_id)||0)+p.planned_supply_qty);const entries=[...grouped].sort(([a],[b])=>a.localeCompare(b));entries.forEach(([id,q],i)=>{const amount=i===entries.length-1?round(pr.estimated_cost-assigned):round(pr.estimated_cost*(sum?q/sum:0));assigned=round(assigned+amount);rows.push({pr_id:pr.pr_id,order_id:id,material_id:pr.material_id,need_date:pr.need_date,planned_demand_qty:round(q),allocated_cost:amount,attribution:'SIMULATED_PROPORTIONAL_COST_NOT_ORDER_COMMITMENT'});});}return rows.filter(x=>orderId==='all'||x.order_id===orderId);
+}
+function appendReview(events,input){if(!input||!input.advice_id||!['APPROVED_SIMULATION','REJECTED_SIMULATION'].includes(input.decision)||!String(input.reason||'').trim()||!String(input.actor||'').trim())throw Error('审核必须包含建议、决定、审核人和原因');const prior=Array.isArray(events)?copy(events):[];const ev={event_id:'REVIEW-'+String(prior.length+1).padStart(5,'0'),advice_id:String(input.advice_id),decision:input.decision,actor:String(input.actor).trim(),reason:String(input.reason).trim(),revision:Number(input.revision),scenario_id:String(input.scenario_id),evidence_ref:String(input.evidence_ref||''),at:String(input.at||new Date().toISOString()),simulation:true,execution_status:'NOT_EXECUTED'};prior.push(ev);return prior;}
+function currentReviews(events,revision){const latest={};for(const e of events||[])latest[e.advice_id]={...e,stale:e.revision!==revision};return latest;}
+function addAlternative(list,alternative,label){if(!alternative?.isolated||!label?.trim())throw Error('Only isolated what-if alternatives can be saved');const rows=Array.isArray(list)?copy(list):[];rows.push({alternative_id:'ALT-'+String(rows.length+1).padStart(3,'0'),label:String(label).trim(),...copy(alternative)});return rows;}
+function nodeDetail(result,nodeId){const node=result.modules.demandNodes.find(n=>n.demand_node_id===nodeId);if(!node)throw Error('Unknown demand node');const pegs=result.modules.pegging.filter(p=>p.demand_node_id===nodeId);return {node,pegging:pegs,ancestors:(()=>{const a=[],by=new Map(result.modules.demandNodes.map(n=>[n.demand_node_id,n]));let p=node;while(p.parent_demand_node_id){p=by.get(p.parent_demand_node_id);if(!p)throw Error('Broken lineage');a.push(p)}return a})()};}
+root.BusinessClosure={unitSummary,purchaseAttribution,appendReview,currentReviews,addAlternative,nodeDetail};if(typeof module!=='undefined'&&module.exports)module.exports=root.BusinessClosure;
+})(typeof window!=='undefined'?window:globalThis);

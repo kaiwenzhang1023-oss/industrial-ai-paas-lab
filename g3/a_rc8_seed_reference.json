@@ -1,0 +1,378 @@
+{
+  "reference_id": "RC8_SEED_MULTI_ORDER_V1",
+  "provenance": "VERSION_A_RC8_NATIVE_JS_PLAN_BUCKETS",
+  "source_engine_sha256": "a2e1f2670a012b9064b0cb688b3418f021ae91809965abacb5b8643f0ec81ffb",
+  "source_adapter_sha256": "23e8dddc2dcfe2debc4cc9ddef6fd047b5b1c09ad80f6a12a6c05950419caeb9",
+  "canonical_input_sha256": "8caafb7c8adbf90f3a8c0a5db7e0fdb7e7901b24a68fc6e3ea21030de3beec54",
+  "lines": [
+    {
+      "material_id": "BR-01",
+      "date": "2026-11-27",
+      "gross_qty": 200,
+      "opening_qty": 250,
+      "receipts_qty": 0,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 50,
+      "release_date": "2026-11-23",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "SO-2026-001",
+          "qty": 200,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "BR-01",
+      "date": "2026-11-30",
+      "gross_qty": 40,
+      "opening_qty": 50,
+      "receipts_qty": 0,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 10,
+      "release_date": "2026-11-26",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "SO-2026-002",
+          "qty": 40,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "HS-01",
+      "date": "2026-11-26",
+      "gross_qty": 0,
+      "opening_qty": 70,
+      "receipts_qty": 10,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 80,
+      "release_date": "2026-11-21",
+      "kind": "BUY",
+      "sources": []
+    },
+    {
+      "material_id": "HS-01",
+      "date": "2026-11-27",
+      "gross_qty": 100,
+      "opening_qty": 80,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-22",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "SO-2026-001",
+          "qty": 100,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "HS-01",
+      "date": "2026-11-29",
+      "gross_qty": 0,
+      "opening_qty": 0,
+      "receipts_qty": 40,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 40,
+      "release_date": "2026-11-24",
+      "kind": "BUY",
+      "sources": []
+    },
+    {
+      "material_id": "HS-01",
+      "date": "2026-11-30",
+      "gross_qty": 20,
+      "opening_qty": 40,
+      "receipts_qty": 0,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 20,
+      "release_date": "2026-11-25",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "SO-2026-002",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "RT-100",
+      "date": "2026-11-26",
+      "gross_qty": 0,
+      "opening_qty": 80,
+      "receipts_qty": 5,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 85,
+      "release_date": "2026-11-24",
+      "kind": "MAKE",
+      "sources": []
+    },
+    {
+      "material_id": "RT-100",
+      "date": "2026-11-27",
+      "gross_qty": 100,
+      "opening_qty": 85,
+      "receipts_qty": 0,
+      "net_qty": 15,
+      "planned_qty": 15,
+      "closing_qty": 0,
+      "release_date": "2026-11-25",
+      "kind": "MAKE",
+      "sources": [
+        {
+          "source": "SO-2026-001",
+          "qty": 100,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "RT-100",
+      "date": "2026-11-30",
+      "gross_qty": 20,
+      "opening_qty": 0,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-28",
+      "kind": "MAKE",
+      "sources": [
+        {
+          "source": "SO-2026-002",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "ST-100",
+      "date": "2026-11-27",
+      "gross_qty": 100,
+      "opening_qty": 60,
+      "receipts_qty": 0,
+      "net_qty": 40,
+      "planned_qty": 40,
+      "closing_qty": 0,
+      "release_date": "2026-11-25",
+      "kind": "MAKE",
+      "sources": [
+        {
+          "source": "SO-2026-001",
+          "qty": 100,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "ST-100",
+      "date": "2026-11-30",
+      "gross_qty": 20,
+      "opening_qty": 0,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-28",
+      "kind": "MAKE",
+      "sources": [
+        {
+          "source": "SO-2026-002",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "CW-01",
+      "date": "2026-11-24",
+      "gross_qty": 0,
+      "opening_qty": 15,
+      "receipts_qty": 5,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 20,
+      "release_date": "2026-11-21",
+      "kind": "BUY",
+      "sources": []
+    },
+    {
+      "material_id": "CW-01",
+      "date": "2026-11-25",
+      "gross_qty": 40,
+      "opening_qty": 20,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-22",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:ST-100@2026-11-27",
+          "qty": 40,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "CW-01",
+      "date": "2026-11-28",
+      "gross_qty": 20,
+      "opening_qty": 0,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-25",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:ST-100@2026-11-30",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "RC-01",
+      "date": "2026-11-25",
+      "gross_qty": 15,
+      "opening_qty": 5,
+      "receipts_qty": 0,
+      "net_qty": 10,
+      "planned_qty": 10,
+      "closing_qty": 0,
+      "release_date": "2026-11-22",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:RT-100@2026-11-27",
+          "qty": 15,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "RC-01",
+      "date": "2026-11-28",
+      "gross_qty": 20,
+      "opening_qty": 0,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-25",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:RT-100@2026-11-30",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "SC-01",
+      "date": "2026-11-25",
+      "gross_qty": 40,
+      "opening_qty": 10,
+      "receipts_qty": 0,
+      "net_qty": 30,
+      "planned_qty": 30,
+      "closing_qty": 0,
+      "release_date": "2026-11-22",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:ST-100@2026-11-27",
+          "qty": 40,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "SC-01",
+      "date": "2026-11-27",
+      "gross_qty": 0,
+      "opening_qty": 0,
+      "receipts_qty": 15,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 15,
+      "release_date": "2026-11-24",
+      "kind": "BUY",
+      "sources": []
+    },
+    {
+      "material_id": "SC-01",
+      "date": "2026-11-28",
+      "gross_qty": 20,
+      "opening_qty": 15,
+      "receipts_qty": 0,
+      "net_qty": 5,
+      "planned_qty": 10,
+      "closing_qty": 5,
+      "release_date": "2026-11-25",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:ST-100@2026-11-30",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    },
+    {
+      "material_id": "SH-01",
+      "date": "2026-11-25",
+      "gross_qty": 15,
+      "opening_qty": 15,
+      "receipts_qty": 0,
+      "net_qty": 0,
+      "planned_qty": 0,
+      "closing_qty": 0,
+      "release_date": "2026-11-22",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:RT-100@2026-11-27",
+          "qty": 15,
+          "origin": "SO-2026-001"
+        }
+      ]
+    },
+    {
+      "material_id": "SH-01",
+      "date": "2026-11-28",
+      "gross_qty": 20,
+      "opening_qty": 0,
+      "receipts_qty": 0,
+      "net_qty": 20,
+      "planned_qty": 20,
+      "closing_qty": 0,
+      "release_date": "2026-11-25",
+      "kind": "BUY",
+      "sources": [
+        {
+          "source": "PLAN:RT-100@2026-11-30",
+          "qty": 20,
+          "origin": "SO-2026-002"
+        }
+      ]
+    }
+  ]
+}
